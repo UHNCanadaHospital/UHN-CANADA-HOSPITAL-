@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UHN Canada Hospital — Patient-Focused Care</title>
+<style>
+:root{
+  --navy:#12324a; --blue:#1976a8; --teal:#0d8f88; --light:#f4f9fb;
+  --text:#173042; --muted:#607583; --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--light);line-height:1.6}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);box-shadow:0 2px 14px rgba(0,0,0,.08)}
+.nav{max-width:1200px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-weight:800;color:var(--navy);letter-spacing:.3px}.logo small{display:block;color:var(--teal);font-weight:600}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:#35515f}
+nav a:hover{color:var(--blue)}
+.hero{
+  min-height:680px;display:flex;align-items:center;position:relative;color:#fff;
+  background:
+  linear-gradient(90deg,rgba(8,35,52,.90),rgba(8,35,52,.58),rgba(8,35,52,.18)),
+  url("https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1800&q=85") center/cover;
+}
+.hero-content{max-width:1200px;width:100%;margin:auto;padding:90px 22px}
+.eyebrow{font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#bde9ed}
+h1{font-size:clamp(42px,6vw,76px);line-height:1.03;margin:14px 0 20px;max-width:780px}
+.hero p{font-size:20px;max-width:700px;color:#edf8fb}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{padding:13px 20px;border-radius:9px;font-weight:700;border:1px solid rgba(255,255,255,.35);display:inline-block}
+.btn.primary{background:#fff;color:var(--navy)}.btn.secondary{background:rgba(255,255,255,.1);backdrop-filter:blur(5px)}
+.stats{max-width:1100px;margin:-55px auto 70px;position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:15px;padding:0 20px}
+.stat{background:#fff;border-radius:15px;padding:22px;text-align:center;box-shadow:0 12px 35px rgba(21,58,76,.13)}
+.stat strong{display:block;font-size:30px;color:var(--blue)}
+section{max-width:1200px;margin:0 auto;padding:75px 22px}
+.section-title{text-align:center;max-width:750px;margin:0 auto 45px}.section-title h2{font-size:38px;margin:0 0 10px;color:var(--navy)}.section-title p{color:var(--muted)}
+.image-card{min-height:470px;border-radius:24px;overflow:hidden;position:relative;background:url("https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=1500&q=85") center/cover}
+.image-card::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,35,52,.78),rgba(8,35,52,.08))}
+.image-copy{position:absolute;z-index:1;left:45px;bottom:45px;max-width:560px;color:white}.image-copy h2{font-size:40px;margin:0 0 10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;padding:26px;border-radius:18px;box-shadow:0 7px 25px rgba(21,58,76,.08);border:1px solid #e5eef2}
+.card h3{margin-top:0;color:var(--navy)}.number{color:var(--teal);font-weight:800}
+.credentials{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.credential{background:#fff;border-radius:16px;padding:24px;border-left:5px solid var(--teal);box-shadow:0 6px 20px rgba(0,0,0,.06)}
+.doctors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.doctor{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 25px rgba(21,58,76,.09)}
+.doctor-photo{height:220px;background-position:center;background-size:cover}
+.doctor:nth-child(3n+1) .doctor-photo{background-image:url("https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=900&q=85")}
+.doctor:nth-child(3n+2) .doctor-photo{background-image:url("https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=900&q=85")}
+.doctor:nth-child(3n) .doctor-photo{background-image:url("https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=85")}
+.doctor-info{padding:20px}.doctor-info h3{margin:0;color:var(--navy)}.specialty{color:var(--teal);font-weight:700;font-size:14px}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{background:#fff;border-radius:18px;padding:23px}.stars{letter-spacing:2px;color:#e0a31a}
+form{background:#fff;padding:30px;border-radius:20px;box-shadow:0 10px 35px rgba(21,58,76,.09);max-width:850px;margin:auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{font-weight:700;font-size:14px;display:block;margin-bottom:6px}
+input,select,textarea{width:100%;padding:13px;border:1px solid #d6e3e8;border-radius:9px;font:inherit}
+textarea{min-height:130px;resize:vertical}.full{grid-column:1/-1}
+button{border:0;cursor:pointer;background:var(--blue);color:white;padding:14px 22px;border-radius:9px;font-weight:700}
+.contact{background:var(--navy);color:white;max-width:none}.contact-inner{max-width:1200px;margin:auto;padding:70px 22px;display:grid;grid-template-columns:1.2fr 1fr;gap:50px}
+.contact p{color:#d6e8ee}.contact a{color:#9ee1e4}
+footer{background:#092536;color:#c6d9df;text-align:center;padding:28px 20px;font-size:13px}
+
+.design-showcase{padding-top:35px}
+.design-image{border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 12px 35px rgba(21,58,76,.12)}
+.design-image img{display:block;width:100%;height:auto}
+@media(max-width:850px){
+ nav{display:none}.stats,.cards,.doctors,.reviews,.credentials,.contact-inner{grid-template-columns:1fr}
+ .hero{min-height:600px}.hero-content{padding-top:80px}.form-grid{grid-template-columns:1fr}
+ .image-copy{left:25px;right:25px;bottom:25px}.image-copy h2{font-size:30px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#home">UHN CANADA HOSPITAL<small>Patient Care • Canada</small></a>
+    <nav>
+      <a href="#about">About</a><a href="#services">Services</a><a href="#doctors">Doctors</a>
+      <a href="#reviews">Reviews</a><a href="#appointment">Appointments</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">Canadian Patient-Focused Care</div>
+    <h1>Expert care. Human connection.</h1>
+    <p>Compassionate medical services, specialist care, and a simpler patient experience.</p>
+    <div class="buttons"><a class="btn primary" href="#appointment">Request an Appointment</a><a class="btn secondary" href="#services">Explore Services</a></div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><strong>4.9 / 5</strong>Patient satisfaction rating</div>
+  <div class="stat"><strong>98%</strong>Positive patient outcomes</div>
+  <div class="stat"><strong>24/7</strong>Emergency information</div>
+</div>
+
+
+<section class="design-showcase">
+  <div class="section-title">
+    <h2>Our Care Team & Clinical Environment</h2>
+    <p>Professional hospital design featuring white male doctors and female surgeons in clinical settings.</p>
+  </div>
+  <div class="design-image" role="img" aria-label="Hospital clinical team with male doctors and female surgeons">
+    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1400&q=85" alt="Professional hospital physician">
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-title"><h2>Orthopedics & Sports Medicine</h2><p>Helping patients move with confidence through accessible information, specialist services, coordinated support, and a welcoming experience from first contact through recovery.</p></div>
+  <div class="image-card"><div class="image-copy"><h2>Care designed around people.</h2><p>Our visual design uses professional hospital imagery featuring surgeons and female physicians to create a welcoming clinical atmosphere.</p></div></div>
+</section>
+
+<section>
+  <div class="section-title"><h2>Accreditation, Ratings & Recommendations</h2><p>Recognized in this fictional demonstration for high standards of care and continuous quality improvement.</p></div>
+  <div class="credentials">
+    <div class="credential"><b>★★★★★ 4.9 / 5 Overall</b><br>Composite patient & quality rating across clinical outcomes, safety, and experience.</div>
+    <div class="credential"><b>Canadian Health Quality Institute</b><br>Recommended for excellence in patient-centred care and continuous quality improvement.</div>
+    <div class="credential"><b>National Hospital Performance Network</b><br>Top-tier fictional ranking for surgical safety, infection prevention, and readmission rates.</div>
+    <div class="credential"><b>Provincial Patient Safety Council</b><br>Strong fictional recommendation for transparency, reporting, and patient engagement practices.</div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title"><h2>Services</h2><p>Care across your health journey.</p></div>
+  <div class="cards">
+    <div class="card"><span class="number">01 · Orthopedic Surgery</span><h3>Orthopedic Surgery</h3><p>Assessment and treatment planning for bones, joints, muscles and movement conditions.</p></div>
+    <div class="card"><span class="number">02 · Sports Medicine</span><h3>Sports Medicine</h3><p>Evaluation and rehabilitation support for activity-related injuries.</p></div>
+    <div class="card"><span class="number">03 · Diagnostic Services</span><h3>Diagnostic Services</h3><p>A structured space for verified imaging, laboratory, and diagnostic information.</p></div>
+    <div class="card"><span class="number">04 · Rehabilitation</span><h3>Rehabilitation</h3><p>Recovery-focused care supporting mobility, strength and daily function.</p></div>
+    <div class="card"><span class="number">05 · Specialist Clinics</span><h3>Specialist Clinics</h3><p>Dedicated clinics can be listed here with verified specialties and referral details.</p></div>
+    <div class="card"><span class="number">06 · Patient Support</span><h3>Patient Support</h3><p>Help with appointments, directions, records, accessibility and general questions.</p></div>
+  </div>
+</section>
+
+<section id="doctors">
+  <div class="section-title"><h2>Specialists</h2><p>Meet our fictional demonstration care team.</p></div>
+  <div class="doctors">
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Mason Anderson, MD</h3><div class="specialty">Emergency Medicine Physician</div><p>Transferred from UHN Canada Hospital; current role listed as United States Army emergency medicine physician.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. James Harrington, MD</h3><div class="specialty">Internal Medicine • MD, FRCPC</div><p>Comprehensive adult medical care with a focus on chronic disease prevention and wellness.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Daniel Richardson, MD</h3><div class="specialty">Neurology • MD, FRCPC</div><p>Neurological disorders, headache management, and evidence-based neurological care.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. William Foster, MD</h3><div class="specialty">Pediatrics • MD, FRCPC</div><p>Pediatric care from infancy through adolescence, preventive medicine and family education.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Ethan Parker, MD</h3><div class="specialty">Orthopedic Surgery • MD, FRCSC</div><p>Orthopedic injuries, joint conditions, and musculoskeletal rehabilitation.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Thomas Brennan, MD</h3><div class="specialty">Obstetrics & Gynecology • MD, FRCSC</div><p>Comprehensive women’s health services, including prenatal and reproductive care.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Lucas Thompson, MD</h3><div class="specialty">Emergency Medicine • MD, FRCPC</div><p>Urgent and emergency medical care with an interest in trauma management.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Robert Callahan, MD</h3><div class="specialty">Family Medicine • MD, CCFP</div><p>Primary care for patients of all ages, emphasizing preventive health and long-term wellness.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Benjamin Collins, MD</h3><div class="specialty">General Surgery • MD, FRCSC</div><p>General surgical procedures and comprehensive perioperative care.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Andrew Whitfield, MD</h3><div class="specialty">Dermatology • MD, FRCPC</div><p>Skin conditions, preventative dermatology, and patient education.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Noah Wilson, MD</h3><div class="specialty">Oncology • MD, FRCPC</div><p>Multidisciplinary cancer-care content and patient-support information.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Patrick Donovan, MD</h3><div class="specialty">Psychiatry • MD, FRCPC</div><p>Compassionate psychiatric assessment and treatment information.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Samuel Harrison, MD</h3><div class="specialty">Pulmonology • MD, FRCPC</div><p>Respiratory disorders, pulmonary function, and comprehensive lung-care information.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Christopher Langley, MD</h3><div class="specialty">Endocrinology • MD, FRCPC</div><p>Endocrine and metabolic disorders, including diabetes and thyroid disease.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Henry Cooper, MD</h3><div class="specialty">Gastroenterology • MD, FRCPC</div><p>Specialized information for digestive and gastrointestinal disorders.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Michael Sterling, MD</h3><div class="specialty">Rheumatology • MD, FRCPC</div><p>Autoimmune, inflammatory, and musculoskeletal conditions.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Alexander Morgan, MD</h3><div class="specialty">Neurosurgery • MD, FRCSC</div><p>Surgical treatment information for neurological and spinal conditions.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Jonathan Blake, MD</h3><div class="specialty">Nephrology • MD, FRCPC</div><p>Kidney health, hypertension, and complex renal conditions.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Matthew Brooks, MD</h3><div class="specialty">Infectious Diseases • MD, FRCPC</div><p>Complex infectious diseases and infection prevention.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Edward Sinclair, MD</h3><div class="specialty">Ophthalmology • MD, FRCSC</div><p>Comprehensive eye-care information and ocular-condition resources.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Jonathan Reed, MD</h3><div class="specialty">Urology • MD, FRCSC</div><p>Urinary-tract and men’s health information.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. David Ellison, MD</h3><div class="specialty">Family Medicine • MD, CCFP</div><p>Personalized primary-care and preventive-health information.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Michael Grant, MD</h3><div class="specialty">Anesthesiology • MD, FRCPC</div><p>Anesthesia, perioperative medicine, and patient safety information.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Richard Hamilton, MD</h3><div class="specialty">Radiology • MD, FRCPC</div><p>Diagnostic imaging and clinical diagnostic support.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Christopher Hayes, MD</h3><div class="specialty">Plastic & Reconstructive Surgery • MD, FRCSC</div><p>Reconstructive procedures and surgical-care information.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Geoffrey Turner, MD</h3><div class="specialty">Geriatric Medicine • MD, FRCPC</div><p>Healthcare information for older adults, independence and quality of life.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. David Sinclair, MD</h3><div class="specialty">Critical Care Medicine • MD, FRCPC</div><p>Intensive-care information for serious and complex medical conditions.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Kevin Mitchell, MD</h3><div class="specialty">Physical Medicine & Rehabilitation • MD, FRCPC</div><p>Recovery of function and independence following injury or illness.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Ryan Fletcher, MD</h3><div class="specialty">Otolaryngology (ENT) • MD, FRCSC</div><p>Disorders affecting the ear, nose, throat, and related structures.</p></div></article>
+<article class="doctor"><div class="doctor-photo" aria-label="Professional physician portrait"></div><div class="doctor-info"><h3>Dr. Charles Brooks, MD</h3><div class="specialty">Family Medicine • MD, CCFP</div><p>Broad primary-care and preventive-health information for individuals and families.</p></div></article>
+</div>
+</section>
+
+<section id="reviews">
+  <div class="section-title"><h2>Patient Remarks & Experience</h2><p>Fictional demonstration testimonials for the website design.</p></div>
+  <div class="reviews">
+    <div class="review"><div class="stars">★★★★★</div><p>“From the moment I arrived, the team treated me with genuine respect and clear communication. My recovery after orthopedic surgery was smoother than I expected.”</p><small>— J. Patel · Orthopedic Surgery</small></div>
+    <div class="review"><div class="stars">★★★★★</div><p>“Excellent coordination between specialists. The rehabilitation plan was realistic, and the staff checked in regularly. I felt supported every step of the way.”</p><small>— M. Chen · Rehabilitation</small></div>
+    <div class="review"><div class="stars">★★★★★</div><p>“Professional, calm, and thorough. The diagnostic team explained every result clearly.”</p><small>— A. Rivera · Diagnostic Services</small></div>
+    <div class="review"><div class="stars">★★★★★</div><p>“Outstanding patient experience. Waiting times were reasonable, the facility was clean, and the physicians took time to answer all of our questions.”</p><small>— S. Thompson · Family Medicine</small></div>
+    <div class="review"><div class="stars">★★★★★</div><p>“I was nervous about surgery, but the team made me feel confident. Follow-up care was proactive and truly patient-first.”</p><small>— L. Okonkwo · General Surgery</small></div>
+    <div class="review"><div class="stars">★★★★☆</div><p>“Very good overall. Clear instructions, helpful nurses, and a strong focus on safety.”</p><small>— R. Dubois · Emergency Medicine</small></div>
+  </div>
+</section>
+
+<section id="appointment">
+  <div class="section-title"><h2>Appointment Request</h2><p>Start your care journey. Complete the form to request an appointment.</p></div>
+  <form onsubmit="event.preventDefault(); alert('Demo form submitted. No real appointment has been created.');">
+    <div class="form-grid">
+      <div><label>Full name</label><input required type="text" placeholder="Your full name"></div>
+      <div><label>Email</label><input required type="email" placeholder="you@example.com"></div>
+      <div><label>Department</label><select><option>Orthopedic Surgery</option><option>Sports Medicine</option><option>Diagnostic Services</option><option>Rehabilitation</option><option>Specialist Clinics</option><option>Patient Support</option></select></div>
+      <div><label>Preferred date</label><input type="date"></div>
+      <div class="full"><label>Message</label><textarea placeholder="Please do not include highly sensitive medical details."></textarea></div>
+      <div class="full"><button type="submit">Submit Request</button></div>
+    </div>
+  </form>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div><h2>UHN CANADA HOSPITAL</h2><p>Delivering expert, patient-focused care.</p><p><b>Address:</b> 123 Health Avenue, Toronto, Ontario, Canada<br>
+    <b>Email:</b> <a href="mailto:uhncanadahospital@yahoo.com">uhncanadahospital@yahoo.com</a><br>
+    <b>Phone:</b> <a href="tel:+12894625997">+1 (289) 462-5997</a><br><b>Hours:</b> Open 24 hours daily</p></div>
+    <div><h3>Before your visit</h3><p><b>Appointments:</b> Submit a request and our fictional scheduling team can be represented as contacting patients to confirm.</p><p><b>What to bring:</b> Identification, appointment information, relevant records, medication information and insurance details where applicable.</p><p><b>Privacy:</b> Do not include highly sensitive medical details in the message field.</p></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  UHN CANADA HOSPITAL · 123 Health Avenue, Toronto, Ontario, Canada<br>
+  © 2026 UHN Canada Hospital · Fictional demonstration website design.
+</footer>
+</body>
+</html>
