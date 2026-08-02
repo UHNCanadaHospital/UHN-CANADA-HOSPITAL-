@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="UHN Canada Hospital — independent Canadian hospital website.">
+<title>UHN Canada Hospital | Patient Care</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar-inner">
+    <span>Independent healthcare organization • Canada</span>
+    <span>For emergencies, call your local emergency service.</span>
+  </div>
+</header>
+
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="UHN Canada Hospital home">
+      <span class="brand-mark"><span>+</span></span>
+      <span><b>UHN</b> CANADA HOSPITAL<small>Patient Care • Canada</small></span>
+    </a>
+    <button class="menu" aria-label="Toggle navigation">☰</button>
+    <nav class="navlinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#doctors">Doctors</a>
+      <a href="#patients">Patients</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#appointment">Book an Appointment</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">CANADIAN PATIENT-FOCUSED CARE</div>
+      <h1>Expert care. <em>Human connection.</em></h1>
+      <p class="hero-text">A modern hospital website for compassionate medical services, specialist care, and a simpler patient experience.</p>
+      <div class="actions">
+        <a class="btn primary" href="#appointment">Request an Appointment</a>
+        <a class="btn outline" href="#services">Explore Services</a>
+      </div>
+      <div class="stats">
+        <div><strong>24/7</strong><span>Emergency information</span></div>
+        <div><strong>Specialist</strong><span>Multidisciplinary care</span></div>
+        <div><strong>Patient-first</strong><span>Personalized support</span></div>
+      </div>
+    </div>
+    <aside class="hero-panel">
+      <span class="panel-icon">✚</span>
+      <p>ORTHOPEDICS & SPORTS MEDICINE</p>
+      <h2>Helping patients move with confidence.</h2>
+      <a href="#doctor">Meet Dr. Mason Anderson →</a>
+    </aside>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container two">
+    <div>
+      <div class="eyebrow">ABOUT US</div>
+      <h2>Care designed around people.</h2>
+    </div>
+    <div class="copy">
+      <p>UHN Canada Hospital is presented here as an independent Canadian hospital website concept. Its services, staff, address, credentials, and contact information must be replaced with verified information before the site is used for real patient care.</p>
+      <p>Our design emphasizes clear information, accessible services, specialist care, and a welcoming experience from first contact through recovery.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section pale">
+  <div class="container">
+    <div class="section-title"><div class="eyebrow">SERVICES</div><h2>Care across your health journey.</h2></div>
+    <div class="cards">
+      <article><span>01</span><h3>Orthopedic Surgery</h3><p>Assessment and treatment planning for bones, joints, muscles and movement conditions.</p></article>
+      <article><span>02</span><h3>Sports Medicine</h3><p>Evaluation and rehabilitation support for activity-related injuries.</p></article>
+      <article><span>03</span><h3>Diagnostic Services</h3><p>A structured space for verified imaging, laboratory, and diagnostic information.</p></article>
+      <article><span>04</span><h3>Rehabilitation</h3><p>Recovery-focused care supporting mobility, strength and daily function.</p></article>
+      <article><span>05</span><h3>Specialist Clinics</h3><p>Dedicated clinics can be listed here with verified specialties and referral details.</p></article>
+      <article><span>06</span><h3>Patient Support</h3><p>Help with appointments, directions, records, accessibility and general questions.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="doctors" class="section">
+  <div class="container">
+    <div class="section-title"><div class="eyebrow">SPECIALISTS</div><h2>Meet our care team.</h2></div>
+    <article id="doctor" class="doctor">
+      <div class="portrait">MA</div>
+      <div>
+        <div class="eyebrow">ORTHOPEDIC SURGERY</div>
+        <h2>Dr. Mason Anderson</h2>
+        <h4>Orthopedic Surgeon</h4>
+        <p>This profile is a fictional/unverified profile created for this independent website. Before publication, replace it with verified licensing, credentials, education, specialties, biography, registration and hospital-affiliation information.</p>
+        <div class="chips"><span>Orthopedic Surgery</span><span>Sports Medicine</span><span>Joint Care</span></div>
+        <a class="btn primary" href="#appointment">Request an Appointment</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="patients" class="section pale">
+  <div class="container">
+    <div class="section-title"><div class="eyebrow">PATIENT INFORMATION</div><h2>Before your visit.</h2></div>
+    <div class="patient-cards">
+      <div><h3>Appointments</h3><p>Request a visit using the form below. This website template does not create a real appointment until connected to an authorized scheduling system.</p></div>
+      <div><h3>What to bring</h3><p>Bring identification, appointment information, relevant records, medication information and insurance details where applicable.</p></div>
+      <div><h3>Privacy</h3><p>Do not submit sensitive medical or financial information through this demonstration form. Production use requires appropriate privacy and security controls.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="appointment" class="section appointment">
+  <div class="container appointment-grid">
+    <div>
+      <div class="eyebrow">APPOINTMENT REQUEST</div>
+      <h2>Start your care journey.</h2>
+      <p class="copy">Complete the form to request an appointment. This front-end version displays a confirmation only; it does not transmit information to a hospital.</p>
+    </div>
+    <form id="appointmentForm">
+      <label>Full name<input required name="name" type="text"></label>
+      <label>Email<input required name="email" type="email"></label>
+      <label>Department<select name="department"><option>Orthopedics</option><option>Sports Medicine</option><option>Rehabilitation</option><option>General Consultation</option></select></label>
+      <label>Preferred date<input name="date" type="date"></label>
+      <label>Message<textarea name="message" rows="4" placeholder="Do not include sensitive medical information."></textarea></label>
+      <button class="btn primary" type="submit">Submit Request</button>
+      <div id="status" class="status"></div>
+    </form>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">CONTACT</div>
+      <h2>We're here to help.</h2>
+      <p>Replace these placeholders with verified information for the independent hospital before publishing.</p>
+    </div>
+    <div class="details">
+      <div><b>Location</b><span>Canada — official address to be added</span></div>
+      <div><b>Email</b><span>uhncanadahospital — complete domain required</span></div>
+      <div><b>Phone</b><span>+1 (000) 000-0000</span></div>
+      <div><b>Hours</b><span>Official hours to be added</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer">
+    <div><a class="brand footer-brand" href="#home"><span class="brand-mark"><span>+</span></span><span><b>UHN</b> CANADA HOSPITAL<small>Independent Canadian organization</small></span></a><p>Independent website concept. Not affiliated with University Health Network (UHN).</p></div>
+    <div class="footlinks"><a href="#about">About</a><a href="#services">Services</a><a href="#doctors">Doctors</a><a href="#appointment">Appointments</a></div>
+  </div>
+  <div class="container copyright">© 2026 UHN Canada Hospital. All rights reserved.</div>
+</footer>
+
+<script>
+const form=document.getElementById('appointmentForm');
+const status=document.getElementById('status');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  status.textContent='Request received on this website template. No information was transmitted.';
+  form.reset();
+});
+const menu=document.querySelector('.menu');
+const links=document.querySelector('.navlinks');
+menu.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+</script>
+</body>
+</html>
